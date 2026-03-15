@@ -164,6 +164,32 @@
         <a href="https://github.com/Kitancodes/task-api-docker" target="_blank" class="project-link">View on GitHub →</a>
       </div>
     </div>
+    <div class="project-card blue">
+  <div class="project-header">
+    <div class="project-title">k8s-weather-logger</div>
+    <div class="project-number">03</div>
+  </div>
+  <p class="project-desc">A real-time weather logging service deployed on AWS EKS — fetching live weather data for Lagos, Abuja, Tokyo, and London every 30 minutes and persisting it to PostgreSQL, with all infrastructure provisioned using Terraform.</p>
+  <ul class="project-highlights">
+    <li>Kubernetes Secrets managing live API credentials and database passwords — base64 encoded, never hardcoded</li>
+    <li>ConfigMaps injecting non-sensitive configuration at runtime without touching application code</li>
+    <li>CronJob triggering the weather fetch every 30 minutes — creating a Job, which creates a Pod, which runs the container</li>
+    <li>PostgreSQL running as a Kubernetes pod in an isolated namespace alongside the app</li>
+    <li>Full AWS infrastructure provisioned with Terraform using modular VPC and EKS configurations</li>
+    <li>Docker image built and pushed to Docker Hub — pulled by the cluster at runtime</li>
+  </ul>
+  <div class="project-footer">
+    <div class="tech-stack">
+      <span class="tech-tag">Kubernetes</span>
+      <span class="tech-tag">AWS EKS</span>
+      <span class="tech-tag">Terraform</span>
+      <span class="tech-tag">Docker</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Python</span>
+    </div>
+    <a href="https://github.com/Kitancodes/k8s-weather-logger" target="_blank" class="project-link">View on GitHub →</a>
+  </div>
+</div>
   </section>
 
   <section id="skills">
@@ -185,8 +211,8 @@
       <div class="skill-group">
         <div class="skill-group-title">Cloud & Infra</div>
         <ul class="skill-list">
-          <li>AWS EC2</li><li>Nginx reverse proxy</li><li>Let's Encrypt SSL</li><li>Linux (Ubuntu)</li>
-        </ul>
+          <li>AWS EC2</li><li>Nginx reverse proxy</li><li>Let's Encrypt SSL</li><li>Linux (Ubuntu)</li><li>Kubernetes (EKS)</li><li>Terraform</li>       
+	</ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">Backend</div>
