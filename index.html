@@ -56,21 +56,14 @@
   .project-highlights li::before { content:'→'; position:absolute; left:0; color:var(--accent); font-size:11px; }
   .project-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
   .tech-stack { display:flex; flex-wrap:wrap; gap:6px; }
+  .tech-tag { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:3px 8px; }
+  .project-link { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); text-decoration:none; white-space:nowrap; }
+  .project-link:hover { text-decoration:underline; }
+  .skills-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
   .skill-group-title { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:0.08em; margin-bottom:12px; text-transform:uppercase; }
   .skill-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
   .skill-list li { font-size:13px; color:#8a9ab0; display:flex; align-items:center; gap:8px; }
   .skill-list li::before { content:''; width:4px; height:4px; background:var(--border-light); border-radius:50%; flex-shrink:0; }
-  .learning-list { display:flex; flex-direction:column; gap:8px; }
-  .learning-item { display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--surface); border:1px solid var(--border); border-radius:8px; font-size:13px; }
-  .learning-item.done { border-color:rgba(62,207,142,0.2); background:rgba(62,207,142,0.03); }
-  .learning-item.done .learning-text { color:var(--text); }
-  .learning-item .learning-text { color:var(--muted); }
-  .status-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-  .status-dot.done { background:var(--green); }
-  .status-dot.pending { background:transparent; border:1.5px solid var(--border-light); }
-  .status-label { font-family:'JetBrains Mono',monospace; font-size:9px; padding:2px 7px; border-radius:3px; margin-left:auto; flex-shrink:0; }
-  .status-label.done { background:var(--green-dim); color:var(--green); }
-  .status-label.next { background:rgba(249,115,22,0.1); color:var(--orange); }
   .contact-row { display:flex; gap:12px; flex-wrap:wrap; }
   .contact-card { flex:1; min-width:200px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px; text-decoration:none; transition:border-color 0.2s,transform 0.2s; display:flex; align-items:center; gap:14px; }
   .contact-card:hover { border-color:var(--accent); transform:translateY(-2px); }
@@ -114,6 +107,32 @@
   <section id="projects">
     <p class="section-label">// work</p>
     <h2 class="section-title">Projects</h2>
+    <div class="project-card blue">
+      <div class="project-header">
+        <div class="project-title">k8s-weather-logger</div>
+        <div class="project-number">03</div>
+      </div>
+      <p class="project-desc">A real-time weather logging service deployed on AWS EKS — fetching live weather data for Lagos, Abuja, Tokyo, and London every 30 minutes and persisting it to PostgreSQL, with all infrastructure provisioned using Terraform.</p>
+      <ul class="project-highlights">
+        <li>Kubernetes Secrets managing live API credentials and database passwords — base64 encoded, never hardcoded</li>
+        <li>ConfigMaps injecting non-sensitive configuration at runtime without touching application code</li>
+        <li>CronJob triggering the weather fetch every 30 minutes — creating a Job, which creates a Pod, which runs the container</li>
+        <li>PostgreSQL running as a Kubernetes pod in an isolated namespace alongside the app</li>
+        <li>Full AWS infrastructure provisioned with Terraform using modular VPC and EKS configurations</li>
+        <li>Docker image built and pushed to Docker Hub — pulled by the cluster at runtime</li>
+      </ul>
+      <div class="project-footer">
+        <div class="tech-stack">
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">AWS EKS</span>
+          <span class="tech-tag">Terraform</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Python</span>
+        </div>
+        <a href="https://github.com/Kitancodes/k8s-weather-logger" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+    </div>
     <div class="project-card blue">
       <div class="project-header">
         <div class="project-title">taskapi-compose-stack</div>
@@ -164,32 +183,6 @@
         <a href="https://github.com/Kitancodes/task-api-docker" target="_blank" class="project-link">View on GitHub →</a>
       </div>
     </div>
-    <div class="project-card blue">
-  <div class="project-header">
-    <div class="project-title">k8s-weather-logger</div>
-    <div class="project-number">03</div>
-  </div>
-  <p class="project-desc">A real-time weather logging service deployed on AWS EKS — fetching live weather data for Lagos, Abuja, Tokyo, and London every 30 minutes and persisting it to PostgreSQL, with all infrastructure provisioned using Terraform.</p>
-  <ul class="project-highlights">
-    <li>Kubernetes Secrets managing live API credentials and database passwords — base64 encoded, never hardcoded</li>
-    <li>ConfigMaps injecting non-sensitive configuration at runtime without touching application code</li>
-    <li>CronJob triggering the weather fetch every 30 minutes — creating a Job, which creates a Pod, which runs the container</li>
-    <li>PostgreSQL running as a Kubernetes pod in an isolated namespace alongside the app</li>
-    <li>Full AWS infrastructure provisioned with Terraform using modular VPC and EKS configurations</li>
-    <li>Docker image built and pushed to Docker Hub — pulled by the cluster at runtime</li>
-  </ul>
-  <div class="project-footer">
-    <div class="tech-stack">
-      <span class="tech-tag">Kubernetes</span>
-      <span class="tech-tag">AWS EKS</span>
-      <span class="tech-tag">Terraform</span>
-      <span class="tech-tag">Docker</span>
-      <span class="tech-tag">PostgreSQL</span>
-      <span class="tech-tag">Python</span>
-    </div>
-    <a href="https://github.com/Kitancodes/k8s-weather-logger" target="_blank" class="project-link">View on GitHub →</a>
-  </div>
-</div>
   </section>
 
   <section id="skills">
@@ -211,8 +204,8 @@
       <div class="skill-group">
         <div class="skill-group-title">Cloud & Infra</div>
         <ul class="skill-list">
-          <li>AWS EC2</li><li>Nginx reverse proxy</li><li>Let's Encrypt SSL</li><li>Linux (Ubuntu)</li><li>Kubernetes (EKS)</li><li>Terraform</li>       
-	</ul>
+          <li>Kubernetes (EKS)</li><li>Terraform</li><li>AWS EC2</li><li>Nginx reverse proxy</li><li>Let's Encrypt SSL</li><li>Linux (Ubuntu)</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">Backend</div>
@@ -245,4 +238,3 @@
 </footer>
 </body>
 </html>
-
