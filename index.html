@@ -12,6 +12,7 @@
     --text: #d4dce8; --muted: #5a6a7e; --accent: #4a9eff;
     --accent-dim: rgba(74,158,255,0.08); --green: #3ecf8e;
     --green-dim: rgba(62,207,142,0.08); --orange: #f97316;
+    --purple: #a78bfa;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
@@ -41,6 +42,28 @@
   section { padding:72px 0; border-top:1px solid var(--border); }
   .section-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px; }
   .section-title { font-size:28px; font-weight:700; color:#e8f0fa; letter-spacing:-0.02em; margin-bottom:32px; }
+
+  /* FLAGSHIP */
+  .flagship-card { background:var(--surface); border:1px solid rgba(74,158,255,0.3); border-radius:16px; padding:36px; margin-bottom:20px; position:relative; overflow:hidden; }
+  .flagship-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--green),var(--purple)); }
+  .flagship-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(74,158,255,0.1); border:1px solid rgba(74,158,255,0.25); border-radius:20px; padding:4px 12px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent); letter-spacing:0.08em; margin-bottom:16px; }
+  .flagship-badge::before { content:''; width:5px; height:5px; background:var(--accent); border-radius:50%; }
+  .flagship-title { font-size:22px; font-weight:800; color:#e8f0fa; font-family:'JetBrains Mono',monospace; margin-bottom:8px; letter-spacing:-0.02em; }
+  .flagship-subtitle { font-size:14px; color:var(--muted); margin-bottom:24px; line-height:1.6; max-width:600px; }
+  .flagship-arch { background:rgba(74,158,255,0.04); border:1px solid var(--border); border-radius:10px; padding:16px 20px; margin-bottom:24px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#5a7a9e; line-height:1.9; }
+  .flagship-arch span { color:var(--accent); }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+  .service-card { background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:10px; padding:16px; }
+  .service-name { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); margin-bottom:6px; font-weight:500; }
+  .service-port { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:8px; }
+  .service-desc { font-size:12px; color:#6a7a8e; line-height:1.5; }
+  .flagship-highlights { list-style:none; margin-bottom:24px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .flagship-highlights li { font-size:13px; color:#8a9ab0; padding-left:16px; position:relative; line-height:1.5; }
+  .flagship-highlights li::before { content:'→'; position:absolute; left:0; color:var(--accent); font-size:11px; }
+  .flagship-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .tech-tag-featured { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent); background:rgba(74,158,255,0.08); border:1px solid rgba(74,158,255,0.25); border-radius:4px; padding:3px 8px; }
+
+  /* REGULAR CARDS */
   .project-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; margin-bottom:16px; transition:border-color 0.2s,transform 0.2s; position:relative; overflow:hidden; }
   .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; opacity:0; transition:opacity 0.3s; }
   .project-card.blue::before { background:linear-gradient(90deg,var(--accent),transparent); }
@@ -59,11 +82,15 @@
   .tech-tag { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:3px 8px; }
   .project-link { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); text-decoration:none; white-space:nowrap; }
   .project-link:hover { text-decoration:underline; }
+
+  /* SKILLS */
   .skills-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
   .skill-group-title { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:0.08em; margin-bottom:12px; text-transform:uppercase; }
   .skill-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
   .skill-list li { font-size:13px; color:#8a9ab0; display:flex; align-items:center; gap:8px; }
   .skill-list li::before { content:''; width:4px; height:4px; background:var(--border-light); border-radius:50%; flex-shrink:0; }
+
+  /* CONTACT */
   .contact-row { display:flex; gap:12px; flex-wrap:wrap; }
   .contact-card { flex:1; min-width:200px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px; text-decoration:none; transition:border-color 0.2s,transform 0.2s; display:flex; align-items:center; gap:14px; }
   .contact-card:hover { border-color:var(--accent); transform:translateY(-2px); }
@@ -73,7 +100,13 @@
   footer { border-top:1px solid var(--border); padding:28px 0; text-align:center; }
   footer p { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); }
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-  @media(max-width:600px) { .hero h1{font-size:36px} .project-header{flex-direction:column} .skills-grid{grid-template-columns:1fr} }
+  @media(max-width:600px) {
+    .hero h1{font-size:36px}
+    .project-header{flex-direction:column}
+    .skills-grid{grid-template-columns:1fr}
+    .services-grid{grid-template-columns:1fr}
+    .flagship-highlights{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
@@ -107,6 +140,70 @@
   <section id="projects">
     <p class="section-label">// work</p>
     <h2 class="section-title">Projects</h2>
+
+    <!-- SHOPFLOW FLAGSHIP -->
+    <div class="flagship-card">
+      <div class="flagship-badge">Flagship Project</div>
+      <div class="flagship-title">ShopFlow</div>
+      <p class="flagship-subtitle">A production-grade microservices e-commerce platform — three independent services deployed on AWS EKS using Helm, with a full CI/CD pipeline, live Prometheus and Grafana monitoring, Nginx Ingress routing, and all infrastructure provisioned as code with Terraform. End to end.</p>
+      <div class="flagship-arch">
+        <span>User</span> → Frontend → <span>API Gateway :8002</span> (Nginx Ingress)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>/api/orders</span> → <span>Order Service :8000</span> → PostgreSQL<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ notifies<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Notification Service :8001</span> → PostgreSQL
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-name">API Gateway</div>
+          <div class="service-port">port 8002</div>
+          <div class="service-desc">Single entry point for all external traffic. Routes by URL path. Never touches a database.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Order Service</div>
+          <div class="service-port">port 8000</div>
+          <div class="service-desc">Full CRUD for orders. Notifies Notification Service on every create or update. Owns its own PostgreSQL.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">Notification Service</div>
+          <div class="service-port">port 8001</div>
+          <div class="service-desc">Logs order events. Receives from Order Service only. Owns its own separate PostgreSQL.</div>
+        </div>
+      </div>
+      <ul class="flagship-highlights">
+        <li>Three independent microservices — each with its own codebase, database, and deployment lifecycle</li>
+        <li>Helm charts per service — templated manifests with values-driven configuration</li>
+        <li>AWS EKS cluster provisioned end to end with modular Terraform — VPC, subnets, IAM, node groups</li>
+        <li>GitHub Actions CI/CD with OIDC keyless auth — test, build, push, deploy on every push to main</li>
+        <li>Nginx Ingress Controller — single external entry point with intelligent path-based routing</li>
+        <li>Prometheus and Grafana — live dashboards for request rates, pod health, and resource usage</li>
+        <li>Kubernetes Secrets and ConfigMaps — zero hardcoded credentials anywhere in the codebase</li>
+        <li>Inter-service communication — Order Service notifies Notification Service on every order event</li>
+        <li>PostgreSQL StatefulSets deployed per service inside the cluster</li>
+        <li>Three Docker images pushed to Docker Hub — pulled by the cluster at runtime</li>
+        <li>terraform destroy run same day — responsible cost management on real AWS infrastructure</li>
+        <li>Full README with architecture, challenges, solutions, and how to run</li>
+      </ul>
+      <div class="flagship-footer">
+        <div class="tech-stack">
+          <span class="tech-tag-featured">Kubernetes</span>
+          <span class="tech-tag-featured">AWS EKS</span>
+          <span class="tech-tag-featured">Helm</span>
+          <span class="tech-tag-featured">Terraform</span>
+          <span class="tech-tag-featured">GitHub Actions</span>
+          <span class="tech-tag-featured">Prometheus</span>
+          <span class="tech-tag-featured">Grafana</span>
+          <span class="tech-tag">Nginx Ingress</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Python</span>
+        </div>
+        <a href="https://github.com/Kitancodes/shopflow" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- WEATHER LOGGER -->
     <div class="project-card blue">
       <div class="project-header">
         <div class="project-title">k8s-weather-logger</div>
@@ -133,6 +230,8 @@
         <a href="https://github.com/Kitancodes/k8s-weather-logger" target="_blank" class="project-link">View on GitHub →</a>
       </div>
     </div>
+
+    <!-- TASKAPI -->
     <div class="project-card blue">
       <div class="project-header">
         <div class="project-title">taskapi-compose-stack</div>
@@ -159,6 +258,8 @@
         <a href="https://github.com/Kitancodes/taskapi-compose-stack" target="_blank" class="project-link">View on GitHub →</a>
       </div>
     </div>
+
+    <!-- FASTAPI -->
     <div class="project-card green">
       <div class="project-header">
         <div class="project-title">fastapi-task-service</div>
@@ -190,27 +291,45 @@
     <h2 class="section-title">Skills & Tools</h2>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-title">Containers</div>
+        <div class="skill-group-title">Containers & Orchestration</div>
         <ul class="skill-list">
-          <li>Docker</li><li>Docker Compose</li><li>Multi-stage builds</li><li>Docker Hub</li>
+          <li>Kubernetes (EKS)</li>
+          <li>Helm</li>
+          <li>Docker</li>
+          <li>Docker Compose</li>
+          <li>Multi-stage builds</li>
+          <li>Docker Hub</li>
         </ul>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">CI/CD</div>
+        <div class="skill-group-title">CI/CD & Automation</div>
         <ul class="skill-list">
-          <li>GitHub Actions</li><li>Automated testing</li><li>Image build & push</li><li>SSH deployment</li>
+          <li>GitHub Actions</li>
+          <li>OIDC Keyless Auth</li>
+          <li>Automated testing & linting</li>
+          <li>Image build & push pipelines</li>
+          <li>SSH & EKS deployment</li>
         </ul>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Cloud & Infra</div>
+        <div class="skill-group-title">Cloud & Infrastructure</div>
         <ul class="skill-list">
-          <li>Kubernetes (EKS)</li><li>Terraform</li><li>AWS EC2</li><li>Nginx reverse proxy</li><li>Let's Encrypt SSL</li><li>Linux (Ubuntu)</li>
+          <li>AWS (EKS, EC2, VPC, IAM)</li>
+          <li>GCP (VPC, Cloud NAT, Storage)</li>
+          <li>Terraform</li>
+          <li>Nginx Ingress</li>
+          <li>Let's Encrypt SSL</li>
+          <li>Linux (Ubuntu)</li>
         </ul>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Backend</div>
+        <div class="skill-group-title">Monitoring & Backend</div>
         <ul class="skill-list">
-          <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li>
+          <li>Prometheus</li>
+          <li>Grafana</li>
+          <li>Python & FastAPI</li>
+          <li>PostgreSQL</li>
+          <li>Redis</li>
         </ul>
       </div>
     </div>
